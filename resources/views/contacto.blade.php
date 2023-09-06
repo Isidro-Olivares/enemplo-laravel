@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,22 @@
 </head>
 <body>
     <h1>Formulario de contacto</h1>
-    <form action="" method="POST">
+    <form action="contacto" method="POST">
+
+        <h3>{{$tipo}}</h3>
+        @csrf
         <label for="correo">CORREO</label><br>
-        <input type="email" name="correo"><br>
+        <input 
+            type="email" 
+                name="correo"
+                @if($tipo == 'alumno')
+                    value="@alumnos.udg.mx"
+                @else
+                    value="@gmail.com"
+                @endif
+                ><br>
         <textarea name="comentario" id="comentario" cols="30">
+            
         </textarea>    
         <br>
         <label for="tipo">Tipo:</label><br>
