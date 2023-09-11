@@ -8,6 +8,17 @@
 <body>
     <h1>Formulario de contacto</h1>
     <form action="contacto" method="POST">
+        
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
 
         <h3>{{$tipo}}</h3>
         @csrf
